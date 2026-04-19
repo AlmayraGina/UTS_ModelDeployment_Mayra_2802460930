@@ -58,7 +58,6 @@ def main():
 
     if st.button("Predict"):
         prediction = model.predict(df)[0]
-        proba = model.predict_proba(df)[0][1]
 
         st.subheader("Prediction")
 
