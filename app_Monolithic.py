@@ -3,6 +3,8 @@ import joblib
 import pandas as pd
 
 model1 = joblib.load("artifacts/Salary_prediction_pipeline.pkl")
+except Exception as e:
+    st.text(traceback.format_exc())
 model2 = joblib.load("artifacts/Placement_prediction_pipeline.pkl")
 
 def main():
