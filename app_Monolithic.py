@@ -1,6 +1,7 @@
 import streamlit as st
 import joblib
 import pandas as pd
+import traceback
 
 try:
     model1 = joblib.load("artifacts/Salary_prediction_pipeline.pkl")
