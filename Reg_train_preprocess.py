@@ -67,7 +67,8 @@ def train_model(x_train, y_train):
         ('preprocessing', ColumnTransformer(transformers=[
             ('num', StandardScaler(), num_feat)
         ], remainder='drop')),
-        ('regressor', RandomForestRegressor(random_state=42,n_jobs=-1))])
+        ('regressor', RandomForestRegressor(max_depth=8, bootstrap = True, ccp_alpha = 0.02,
+                                            random_state=42,n_jobs=-1))])
                                     
     mlflow.set_experiment("Student Placement Prediction")
 
