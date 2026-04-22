@@ -62,7 +62,7 @@ def train_model(x_train, y_train):
                 'cgpa_square', 'total_experience', 'academic_skill', 'projects_skill']
 
 
-    placement_pred = Pipeline([
+    salary_pred = Pipeline([
         ('feature_engineering', FeatureEngineer()),
         ('preprocessing', ColumnTransformer(transformers=[
             ('num', StandardScaler(), num_feat)
@@ -74,9 +74,9 @@ def train_model(x_train, y_train):
 
     with mlflow.start_run() as run:
 
-        placement_pred.fit(x_train, y_train)
+        salary_pred.fit(x_train, y_train)
 
-        joblib.dump(placement_pred, "artifacts/Salary_prediction_pipeline.pkl")
-        mlflow.sklearn.log_model(placement_pred,name="model",input_example=x_train.iloc[:3])
+        joblib.dump(salary_pred, "artifacts/Salary_prediction_pipeline.pkl")
+        mlflow.sklearn.log_model(salary_pred,name="model",input_example=x_train.iloc[:3])
 
     return run.info.run_id
