@@ -70,7 +70,7 @@ def train_model(x_train, y_train):
         ('regressor', RandomForestRegressor(max_depth=8, bootstrap = True, ccp_alpha = 0.02,
                                             random_state=42,n_jobs=-1))])
                                     
-    mlflow.set_experiment("Student Placement Prediction")
+    mlflow.set_experiment("Student Salary Prediction")
 
     with mlflow.start_run() as run:
 
